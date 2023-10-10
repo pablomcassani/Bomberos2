@@ -13,7 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -38,7 +37,7 @@ public class SiniestroData {
            ps.setInt(3, siniestro.getCoordX());
            ps.setInt(4, siniestro.getCoordY());
            ps.setString(5, siniestro.getDetalles());
-             ps.setDate(6, Date.valueOf(siniestro.getFechaResol()));
+           ps.setDate(6, Date.valueOf(siniestro.getFechaResol()));
            ps.setInt(7, siniestro.getPuntuacion());
            ps.setInt(8, siniestro.getBrigada().getcodBrigada());
           
@@ -67,21 +66,26 @@ public class SiniestroData {
             
             if(rs.next()){
             siniestro = new Siniestro();
-            ;
-            bombero.setNombrecompleto(rs.getString("nombre_ape"));
-            bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
-            bombero.setCelular(rs.getString("celular"));
-        //    bombero.setBrigada(rs.getObject("codBrigada", type)); //brigada
-        JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());
+            siniestro.setIdSiniestro(id);
+            siniestro.setTipo(rs.getString("tipo"));
+            siniestro.setFechaSiniestro(rs.getDate("fecha_siniestro").toLocalDate());
+            siniestro.setCoordX(rs.getInt("coord_X"));
+            siniestro.setCoordY(rs.getInt("coord_Y"));
+            siniestro.setDetalles(rs.getString("detallaes"));
+            siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
+            siniestro.setPuntuacion(id);
+            siniestro.setBrigada(rs.getObject("codBrigada", type));
+      
+        JOptionPane.showMessageDialog(null, siniestro.getTipo());
             
         }else {
-                JOptionPane.showMessageDialog(null, "No existe el bombero");
+                JOptionPane.showMessageDialog(null, "No exixte el siniestro");
                 }
         ps.close();
         } catch (SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla bombero "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla siniestro "+ex.getMessage());
         }
-        return bombero;
+        return siniestro;
     }
     public Bombero buscarBomberoPorDni(int dni){
         Bombero bombero = null;
