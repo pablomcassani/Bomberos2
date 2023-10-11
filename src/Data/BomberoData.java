@@ -109,7 +109,7 @@ public class BomberoData {
         return bombero;
     }
     public List<Bombero> listarBomberos(){
-        List<Bombero> alumnos = new ArrayList<>();
+        List<Bombero> bomberos = new ArrayList<>();
         try{
             String sql = "SELECT * FROM bombero where 1";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -127,9 +127,9 @@ public class BomberoData {
             }
             ps.close();
         } catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla bombero "+ex.getMessage());
         }
-        return alumnos;
+        return bomberos;
     }
     public void modificaBombero(Bombero bombero){
         String sql = "UPDATE bombero SET dni = ? , nombre_ape = ?, fecha_nac= ?, grupoSanguineo = ?, celular= ?, codBrigada= ? WHERE id_bombero =?";

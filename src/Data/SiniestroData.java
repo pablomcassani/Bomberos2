@@ -87,8 +87,8 @@ public class SiniestroData {
         }
         return siniestro;
     }
-    public Bombero buscarBomberoPorDni(int dni){
-        Bombero bombero = null;
+    public Siniestro BuscarSiniestroPortipo(int dni){
+        Siniestro siniestro = null;
         String sql = "SELECT id_bombero, dni, nombre_ape, fecha_nac, celular, codBrigada FROM bombero WHERE dni = ?";
         PreparedStatement ps = null;
         try{
@@ -113,32 +113,37 @@ public class SiniestroData {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla bombero "+ex.getMessage());
         }
-        return bombero;
+        return siniestros;
     }
-    public List<Bombero> listarBomberos(){
-        List<Bombero> alumnos = new ArrayList<>();
+    public List<Siniestro> listarSiniestros(){
+        List<Siniestro> siniestros = new ArrayList<>();
         try{
-            String sql = "SELECT * FROM bombero where 1";
+            String sql = "SELECT * FROM siniestro where 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-               Bombero bombero = new Bombero();
-               bombero.setIdBombero(rs.getInt("id_bombero"));
-               bombero.setDni(rs.getString("dni"));
-               bombero.setNombrecompleto(rs.getString("nombre_ape"));
-               bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
-               bombero.setCelular(rs.getString("celular"));
+                Siniestro siniestro = new Siniestro();
+                siniestro.setIdSiniestro(rs.getInt("idSiniestro"));
+                siniestro.setTipo(rs.getString("tipo"));
+                siniestro.setFechaSiniestro(rs.getDate("fecha_siniestro").toLocalDate());
+                siniestro.setCoordX(rs.getInt("coord_X"));
+                siniestro.setCoordY(rs.getInt("coord_Y"));
+                siniestro.setDetalles(rs.getString("detallaes"));
+                siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
+                siniestro.setPuntuacion(id);
+                siniestro.setBrigada(rs.getObject("codBrigada", type));
+               
         //       bombero.setBrigada(rs.getObject("codBrigada", type));//brigada
-                      JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());        
+                      JOptionPane.showMessageDialog(null, siniestro.getTipo());        
             }
             ps.close();
         } catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla siniestro "+ex.getMessage());
         }
-        return alumnos;
+        return siniestros;
     }
-    public void modificaBombero(Bombero bombero){
+    public void modificaBombeo(Bombero bombero){
         String sql = "UPDATE bombero SET dni = ? , nombre_ape = ?, fecha_nac= ?, grupoSanguineo = ?, celular= ?, codBrigada= ? WHERE id_bombero =?";
         PreparedStatement ps = null;
         try{
@@ -161,7 +166,7 @@ public class SiniestroData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla bombero "+ex.getMessage());
         }
     }
-    public void eliminarBombero(int id){
+    public void eliminarSiniestro(int id){
         try{
             String sql = "DELETE FROM bombero WHERE id_bombero = ?";
             PreparedStatement ps = con.prepareStatement(sql);
