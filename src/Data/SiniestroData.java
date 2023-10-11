@@ -77,7 +77,7 @@ public class SiniestroData {
             siniestro.setDetalles(rs.getString("detallaes"));
             siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
             siniestro.setPuntuacion(id);
-            siniestro.setBrigada(bri);// ?
+            siniestro.setBrigada(bri);
       
         JOptionPane.showMessageDialog(null, siniestro.getTipo());
             

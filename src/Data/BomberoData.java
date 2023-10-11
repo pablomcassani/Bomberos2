@@ -49,7 +49,7 @@ public class BomberoData {
               System.out.println("No se pudo obtener ID");
         }
         }catch(SQLException ex){
-//            JOptionPane.showMessageDialog(null,ex.getMessage());
+              JOptionPane.showMessageDialog(null,ex.getMessage());
     }
  }
     public Bombero buscarBombero(int id){
@@ -64,11 +64,13 @@ public class BomberoData {
             
             if(rs.next()){
             bombero = new  Bombero();
+            Brigada bri =briData.buscarBrigada(rs.getInt("codBrigada"));
+            
             bombero.setIdBombero(id);
             bombero.setNombrecompleto(rs.getString("nombre_ape"));
             bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
             bombero.setCelular(rs.getString("celular"));
-        //    bombero.setBrigada(rs.getObject("codBrigada", type)); //brigada
+            bombero.setBrigada(bri); 
         JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());
             
         }else {
@@ -91,12 +93,14 @@ public class BomberoData {
             
             if(rs.next()){
                bombero = new Bombero();
+               Brigada bri =briData.buscarBrigada(rs.getInt("codBrigada"));
+               
                bombero.setIdBombero(rs.getInt("id_bombero"));
                bombero.setDni(rs.getString("dni"));
                bombero.setNombrecompleto(rs.getString("nombre_ape"));
                bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
                bombero.setCelular(rs.getString("celular"));
-        //       bombero.setBrigada(rs.getObject("codBrigada", type));//brigada
+               bombero.setBrigada(bri);
                
             }else{
                 JOptionPane.showMessageDialog(null, "No existe bombero con ese id");
@@ -117,13 +121,16 @@ public class BomberoData {
             
             while(rs.next()){
                Bombero bombero = new Bombero();
+               Brigada bri =briData.buscarBrigada(rs.getInt("codBrigada"));
+               
                bombero.setIdBombero(rs.getInt("id_bombero"));
                bombero.setDni(rs.getString("dni"));
                bombero.setNombrecompleto(rs.getString("nombre_ape"));
                bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
                bombero.setCelular(rs.getString("celular"));
-        //       bombero.setBrigada(rs.getObject("codBrigada", type));//brigada
-                      JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());        
+               bombero.setBrigada(bri);
+                  
+                    JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());        
             }
             ps.close();
         } catch(SQLException ex){
@@ -141,7 +148,7 @@ public class BomberoData {
             ps.setDate(3, Date.valueOf(bombero.getFechaNac()));
             ps.setString(4, bombero.getGrupoSangineo());
             ps.setString(5, bombero.getCelular());
-            ps.setInt(6, bombero.getBrigada().getcodBrigada());// codBrigada
+            ps.setInt(6, bombero.getBrigada().getcodBrigada());
             ps.setInt(7,bombero.getIdBombero());
             int exito = ps.executeUpdate();
             
