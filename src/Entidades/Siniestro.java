@@ -98,6 +98,7 @@ public class Siniestro {
         this.detalles = detalles;
     }
 
+   
     public LocalDate getFechaResol() {
         return fechaResol;
     }

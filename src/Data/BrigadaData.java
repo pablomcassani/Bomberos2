@@ -67,7 +67,7 @@ public class BrigadaData {
 
             brigada.setNombreBr(rs.getString("nombre_br"));
             brigada.setEspecialidad(rs.getString("especialidad"));
-           brigada.setLibre(rs.getBoolean("libre"));
+            brigada.setLibre(rs.getBoolean("libre"));
             brigada.setCuartel(cua);
             brigadas.add(brigada);
     JOptionPane.showMessageDialog(null,brigada.getNombreBr());
