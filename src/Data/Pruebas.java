@@ -115,9 +115,11 @@ public class Pruebas {
 //        guardarSiniestro();
           BrigadaData brig = new BrigadaData();        
           Brigada bri = brig.buscarBrigada(1);    
-        Siniestro terremoto = new Siniestro("desastre natural", LocalDate.of(2023, Month.SEPTEMBER, 29), 9,119,"Terremoto de pequeño nivel causa derrumbe de hogares en barrio en las afueras de BS AS",LocalDate.of(2023, Month.OCTOBER, 9),5, bri );
-        sinData.guardarSiniestro(terremoto);
-        
-        
+//        Siniestro terremoto = new Siniestro("desastre natural", LocalDate.of(2023, Month.SEPTEMBER, 29), 9,119,"Terremoto de pequeño nivel causa derrumbe de hogares en barrio en las afueras de BS AS",LocalDate.of(2023, Month.OCTOBER, 9),5, bri );
+//        sinData.guardarSiniestro(terremoto);
+
+//        modificarSiniestro();
+        Siniestro terremoto = new Siniestro(1,"desastre natural", LocalDate.of(2023, Month.OCTOBER, 12), 9,119,"Terremoto de pequeño nivel causa derrumbe de hogares en barrio en las afueras de BS AS", null,0, null);
+      sinData.modificaSiniestro(terremoto);
       }
 }
