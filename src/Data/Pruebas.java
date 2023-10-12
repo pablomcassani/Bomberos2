@@ -9,6 +9,7 @@ import Entidades.Bombero;
 import Entidades.Brigada;
 import Entidades.Cuartel;
 import Entidades.Siniestro;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
@@ -113,11 +114,24 @@ public class Pruebas {
         SiniestroData sinData = new SiniestroData();
         
 //        guardarSiniestro();
-          BrigadaData brig = new BrigadaData();        
-          Brigada bri = brig.buscarBrigada(1);    
-        Siniestro terremoto = new Siniestro("desastre natural", LocalDate.of(2023, Month.SEPTEMBER, 29), 9,119,"Terremoto de pequeño nivel causa derrumbe de hogares en barrio en las afueras de BS AS",LocalDate.of(2023, Month.OCTOBER, 9),5, bri );
-        sinData.guardarSiniestro(terremoto);
+    //      BrigadaData brig = new BrigadaData();        
+    //      Brigada bri = brig.buscarBrigada(1);    
+    //    Siniestro terremoto = new Siniestro("desastre natural", LocalDate.of(2023, Month.SEPTEMBER, 29), 9,119,"Terremoto de pequeño nivel causa derrumbe de hogares en barrio en las afueras de BS AS",LocalDate.of(2023, Month.OCTOBER, 9),5, bri );
+    //    sinData.guardarSiniestro(terremoto);
+                
+                BrigadaData brigDat = new BrigadaData();
+                Brigada bri = brigDat.buscarBrigada(1);
+                Siniestro accidente = new Siniestro("accidente de trafico", LocalDate.of(2023, Month.OCTOBER, 10),90,112,"Accidente de trancito en Alsina y San Martin", LocalDate.of(2023, Month.OCTOBER, 11),5, null);
+                sinData.guardarSiniestro(accidente);
+            
+    //          sinData.buscarSiniestro(1);
+      
+        //        Date fechaSiniestro = new Date(2023,10,9);
+        //        sinData.BuscarSiniestroPorFechaDeSiniestro(fechaSiniestro);
         
-        
+       //            sinData.listarSiniestros();
+       
+     
+                     sinData.listarSiniestrosLibres();
       }
 }

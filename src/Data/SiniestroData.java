@@ -74,7 +74,7 @@ public class SiniestroData {
             siniestro.setFechaSiniestro(rs.getDate("fecha_siniestro").toLocalDate());
             siniestro.setCoordX(rs.getInt("coord_X"));
             siniestro.setCoordY(rs.getInt("coord_Y"));
-            siniestro.setDetalles(rs.getString("detallaes"));
+            siniestro.setDetalles(rs.getString("detalles"));
             siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
             siniestro.setPuntuacion(id);
             siniestro.setBrigada(bri);
@@ -90,13 +90,13 @@ public class SiniestroData {
         }
         return siniestro;
     }
-    public Siniestro BuscarSiniestroPorFechaDeSiniestro(int dni){
+    public Siniestro BuscarSiniestroPorFechaDeSiniestro(Date fechaSiniestro){
         Siniestro siniestro = null;
         String sql = "SELECT idSiniestro, tipo, fecha_siniestro, coord_X, coord_Y, detalles, fecha_resol, puntuacion, codBrigada FROM `siniestro` WHERE fecha_siniestro = ?";
         PreparedStatement ps = null;
         try{
             ps = con.prepareStatement(sql);
-            ps.setInt(1, dni);
+            ps.setDate(1, fechaSiniestro);
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
@@ -109,11 +109,12 @@ public class SiniestroData {
             siniestro.setFechaSiniestro(rs.getDate("fecha_siniestro").toLocalDate());
             siniestro.setCoordX(rs.getInt("coord_X"));
             siniestro.setCoordY(rs.getInt("coord_Y"));
-            siniestro.setDetalles(rs.getString("detallaes"));
+            siniestro.setDetalles(rs.getString("detalles"));
             siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
             siniestro.setPuntuacion(rs.getInt("puntuacion"));
-            siniestro.setBrigada(bri); // ?
+            siniestro.setBrigada(bri);
                 
+                JOptionPane.showMessageDialog(null, "El incidente es: " + siniestro);
             }else{
                 JOptionPane.showMessageDialog(null, "No existe siniestro con ese id");
             }
@@ -140,7 +141,7 @@ public class SiniestroData {
                 siniestro.setFechaSiniestro(rs.getDate("fecha_siniestro").toLocalDate());
                 siniestro.setCoordX(rs.getInt("coord_X"));
                 siniestro.setCoordY(rs.getInt("coord_Y"));
-                siniestro.setDetalles(rs.getString("detallaes"));
+                siniestro.setDetalles(rs.getString("detalles"));
                 siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
                 siniestro.setPuntuacion(rs.getInt("puntuacion"));
                 siniestro.setBrigada(bri); //?
@@ -168,7 +169,7 @@ public class SiniestroData {
                 siniestro.setFechaSiniestro(rs.getDate("fecha_siniestro").toLocalDate());
                 siniestro.setCoordX(rs.getInt("coord_X"));
                 siniestro.setCoordY(rs.getInt("coord_Y"));
-                siniestro.setDetalles(rs.getString("detallaes"));
+                siniestro.setDetalles(rs.getString("detalles"));
                 siniestro.setFechaResol(rs.getDate("fecha_resol").toLocalDate());
                 siniestro.setPuntuacion(rs.getInt("puntuacion"));
              
