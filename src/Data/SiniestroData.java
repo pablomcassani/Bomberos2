@@ -30,7 +30,7 @@ public class SiniestroData {
            con = miConexion.getConexion();
     }
          public void guardarSiniestro(Siniestro siniestro){
-        String sql = "INSERT INTO siniestro ( tipo, fecha_siniestro, coord_X, coord_Y, detalles, fecha_resol,puntuacion,codBrigada) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO siniestro ( tipo, fecha_siniestro, coord_X, coord_Y, detalles, fecha_resol,puntuacion,codBrigada) VALUES (?,?,?,?,?,?,?,0)";
         try{
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, siniestro.getTipo());
@@ -44,11 +44,7 @@ public class SiniestroData {
                 ps.setDate(6, null);
             }    
             ps.setInt(7, siniestro.getPuntuacion());
-            if(siniestro.getBrigada().getcodBrigada() != 0){
-               ps.setInt(8, siniestro.getBrigada().getcodBrigada()); 
-            } else {
-               ps.setInt(8, 0); 
-            }
+            
             ps.executeUpdate();
            
           ResultSet rs = ps.getGeneratedKeys();
