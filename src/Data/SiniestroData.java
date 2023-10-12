@@ -182,31 +182,7 @@ public class SiniestroData {
         return siniestros;
     }
     
-    public void modificarSiniesro(Siniestro siniestro){
-        String sql = "UPDATE siniestro SET idSiniestro = ?, tipo = ?, fecha_siniestro = ?, coord_X = ?, coord_Y = ?, detalles = ?, fecha_resol = ?, puntuacion = ? , codBrigada = ? WHERE idsiniestro ";
-        PreparedStatement ps = null;
-        try{
-            ps = con.prepareStatement(sql);
-            ps.setString(1, siniestro.getTipo());
-            ps.setDate(2, Date.valueOf(siniestro.getFechaSiniestro()));
-            ps.setInt(3, siniestro.getCoordX());
-            ps.setInt(4, siniestro.getCoordY());
-            ps.setString(5, siniestro.getDetalles());
-            ps.setDate(6, Date.valueOf(siniestro.getFechaResol()));
-            ps.setInt(7, siniestro.getPuntuacion());
-            ps.setInt(8, siniestro.getBrigada().getcodBrigada());
-            
-            int exito = ps.executeUpdate();
-            
-            if(exito == 1){
-                JOptionPane.showMessageDialog(null, "Modificado exitosamente.");
-            }else{
-                JOptionPane.showMessageDialog(null,"El siniestro no existe");
-            }
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla siniestro "+ex.getMessage());
-        }
-    }
+    
     public void eliminarSiniestro(int id){
         try{
             String sql = "DELETE FROM siniestro WHERE idSiniestro = ?";
@@ -220,6 +196,31 @@ public class SiniestroData {
             ps.close();
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Error al acceder a siniestro.");
+        }
+    }
+      public void modificaSiniestro(Siniestro siniestro){
+        String sql = "UPDATE siniestro SET tipo = ? , fecha_siniestro = ?, coord_X= ?, coord_Y = ?, detalles = ?, fecha_resol= ?, puntuacion = ?, codBrigada = ?  WHERE codigo =?";
+        PreparedStatement ps = null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, siniestro.getTipo());
+            ps.setDate(2, Date.valueOf(siniestro.getFechaSiniestro()));
+            ps.setInt(3, siniestro.getCoordX());
+            ps.setInt(4, siniestro.getCoordY());
+            ps.setString(5, siniestro.getDetalles());
+            ps.setDate(6, Date.valueOf(siniestro.getFechaResol()));
+            ps.setInt(7, siniestro.getPuntuacion() );
+            ps.setInt(8, siniestro.getBrigada().getcodBrigada());
+            ps.setInt(9, siniestro.getIdSiniestro());
+            int exito = ps.executeUpdate();
+            
+            if(exito == 1){
+                JOptionPane.showMessageDialog(null, "Modificado exitosamente.");
+            }else{
+                JOptionPane.showMessageDialog(null,"El siniestro no está registrado");
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Error al acceder a la información de siniestro "+ex.getMessage());
         }
     }
 }
