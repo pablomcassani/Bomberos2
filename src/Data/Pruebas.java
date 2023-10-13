@@ -46,7 +46,7 @@ public class Pruebas {
 //        modificarBombero();
 /*Usa el constructor de "Bombero" que requiere "id_bombero" y modifica al objeto con ese id con los datos que le pases.*/ 
 //        Bombero mauricio = new Bombero(12,"39.550.789","Mauricio Galarza","A-",LocalDate.of(1991, Month.OCTOBER, 8),"1171626610",bri);
-//        bombData.modificaBombero(mauricio);
+//        bombData.modificarBombero(mauricio);
 
 //        eliminarBombero();
 /*        Toma el "id_bombero" y elimina de la base de datos la tabla a la que corresponda*/ 

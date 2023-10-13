@@ -138,7 +138,7 @@ public class BomberoData {
         }
         return bomberos;
     }
-    public void modificaBombero(Bombero bombero){
+    public void modificarBombero(Bombero bombero){
         String sql = "UPDATE bombero SET dni = ? , nombre_ape = ?, fecha_nac= ?, grupoSanguineo = ?, celular= ?, codBrigada= ? WHERE id_bombero =?";
         PreparedStatement ps = null;
         try{
