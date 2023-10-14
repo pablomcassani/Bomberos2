@@ -143,6 +143,7 @@ public class Pruebas {
 //                    modificarSiniestro();
                         Siniestro terremoto = new Siniestro(1,"desastre natural", LocalDate.of(2023, Month.OCTOBER, 12), 9,119,"Terremoto de pequeño nivel causa derrumbe de hogares en barrio en las afueras de BS AS", null,0, null);
                         sinData.modificarSiniestro(terremoto);
+                        
                         sinData.eliminarSiniestro(1);
       }
 }

@@ -201,11 +201,11 @@ public class SiniestroData {
                 ps.setDate(6, null);
             }
             ps.setInt(7, siniestro.getPuntuacion());
-  //        if(siniestro.getBrigada().getcodBrigada() > 0){
+    //        if(siniestro.getBrigada().getcodBrigada() > 0){
                 ps.setInt(8, siniestro.getBrigada().getcodBrigada());   
-   //       } else {
-   //           ps.setInt(8, 0);
-  //        }
+   //         } else {
+   //             ps.setInt(8, 0);
+   //         }
             int exito = ps.executeUpdate();
             
             if(exito == 1){
