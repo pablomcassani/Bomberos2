@@ -5,12 +5,15 @@
  */
 package vistas;
 
+import Entidades.Bombero;
+import java.util.ArrayList;
+
 /**
  *
  * @author nacho
  */
 public class Menu extends javax.swing.JFrame {
-
+public static ArrayList<Bombero>ListaBombero = new ArrayList<>();
     /**
      * Creates new form Menu
      */

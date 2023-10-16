@@ -34,6 +34,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField8">
     </Component>
+    <Component class="javax.swing.JTextField" name="jTBrigada">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
@@ -91,7 +93,6 @@
                           <Component id="jDFechaDeNac" min="-2" max="-2" attributes="0"/>
                           <Component id="jTID" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                           <Component id="jTTelefono" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                          <Component id="jTBrigada" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="jTGrupoSanguineo" min="-2" pref="136" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
@@ -107,6 +108,11 @@
                               <Component id="jTNombreCompleto" alignment="0" min="-2" pref="217" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jTDni" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jCBcodBrigada" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTcodBrigada" min="-2" pref="68" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -121,7 +127,7 @@
               <Component id="jLabel1" min="-2" pref="15" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
               <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -161,8 +167,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCBcodBrigada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTcodBrigada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -172,8 +182,7 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jTBrigada" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="jTID" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -257,8 +266,6 @@
         <Property name="text" type="java.lang.String" value="Brigada asignada:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTBrigada">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
         <Property name="text" type="java.lang.String" value="Grupo Sanguineo:"/>
@@ -292,6 +299,21 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jCBcodBrigada">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBcodBrigadaActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTcodBrigada">
     </Component>
   </SubComponents>
 </Form>

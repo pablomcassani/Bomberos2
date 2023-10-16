@@ -5,6 +5,10 @@
  */
 package vistas;
 
+import Data.BomberoData;
+import Entidades.Bombero;
+import static vistas.Menu.ListaBombero;
+
 /**
  *
  * @author nacho
@@ -32,6 +36,7 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
+        jTBrigada = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
@@ -48,7 +53,6 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
         jBModificar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTBrigada = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTGrupoSanguineo = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -56,6 +60,8 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
         jTiDBombero = new javax.swing.JTextField();
         jBBuscar = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jCBcodBrigada = new javax.swing.JComboBox<>();
+        jTcodBrigada = new javax.swing.JTextField();
 
         jButton1.setText("Nuevo");
 
@@ -116,6 +122,12 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
 
         jBBuscar.setText("Buscar");
 
+        jCBcodBrigada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBcodBrigadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,7 +159,6 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
                             .addComponent(jDFechaDeNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTID, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTBrigada, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTGrupoSanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -159,7 +170,11 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jBBuscar))
                                 .addComponent(jTNombreCompleto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTDni, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTDni, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jCBcodBrigada, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTcodBrigada, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -169,7 +184,7 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -202,8 +217,11 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jCBcodBrigada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTcodBrigada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
                         .addComponent(jLabel2)
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,8 +229,7 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
                             .addComponent(jBModificar)
                             .addComponent(jBEliminar)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTBrigada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(38, 38, 38)
                         .addComponent(jTID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(64, 64, 64))
         );
@@ -229,9 +246,32 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
-        // Funcion para agregar a 5 bomberos por brigada
-        int idBombero = Integer.parseInt("");
+        try{
+            int idBombero = Integer.parseInt(jTiDBombero.getText());
+            String nombreCom = jTNombreCompleto.getText();
+            String grupoSang = jTGrupoSanguineo.getText();
+            String Dni = jTDni.getText();
+            Date fechaNac = ; // jDayChoser
+            String celular = jTTelefono.getText();
+            int codBrigada = Integer.parseInt(jTcodBrigada.getText());
+            
+            Menu.ListaBombero.add(new Bombero(idBombero,nombreCom,grupoSang,Dni,fechaNac,celular,codBrigada));
+            Bombero bombero = new Bombero(idBombero,nombreCom,grupoSang,Dni,fechaNac,celular,codBrigada);
+            BomberoData bomDat = new BomberoData();
+            bomDat.guardarBomero(bombero);
+            for(Bombero bom: ListaBombero){
+                
+            }
+            
+        } catch(NumberFormatException ex){
+            
+        } 
     }//GEN-LAST:event_jBAgregarActionPerformed
+
+    private void jCBcodBrigadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBcodBrigadaActionPerformed
+        // list brigadasIncompletas
+       
+    }//GEN-LAST:event_jCBcodBrigadaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -241,6 +281,7 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBModificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jCBcodBrigada;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDFechaDeNac;
@@ -262,6 +303,7 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTID;
     private javax.swing.JTextField jTNombreCompleto;
     private javax.swing.JTextField jTTelefono;
+    private javax.swing.JTextField jTcodBrigada;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTiDBombero;
     // End of variables declaration//GEN-END:variables
