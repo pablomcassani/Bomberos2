@@ -7,6 +7,11 @@ package vistas;
 
 import Data.BomberoData;
 import Entidades.Bombero;
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import static vistas.Menu.ListaBombero;
 
 /**
@@ -247,20 +252,30 @@ public class formularioDeBombero extends javax.swing.JInternalFrame {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         try{
-            int idBombero = Integer.parseInt(jTiDBombero.getText());
-            String nombreCom = jTNombreCompleto.getText();
-            String grupoSang = jTGrupoSanguineo.getText();
-            String Dni = jTDni.getText();
-            Date fechaNac = ; // jDayChoser
-            String celular = jTTelefono.getText();
-            int codBrigada = Integer.parseInt(jTcodBrigada.getText());
+            int id_bombero = Integer.parseInt(jTiDBombero.getText());
+            String nombre_ape = jTNombreCompleto.getText();
+            String grupoSangineo = jTGrupoSanguineo.getText();
+            String dni = jTDni.getText();
+    
+            java.util.Date utilDate = jDFechaDeNac.getDate();
+
+            Instant instant = utilDate.toInstant(); 
+            ZonedDateTime zonedDateTime = instant.atZone(ZoneId.systemDefault());
+
+            LocalDate fecha_nac = zonedDateTime.toLocalDate();
             
-            Menu.ListaBombero.add(new Bombero(idBombero,nombreCom,grupoSang,Dni,fechaNac,celular,codBrigada));
-            Bombero bombero = new Bombero(idBombero,nombreCom,grupoSang,Dni,fechaNac,celular,codBrigada);
+            String celular = jTTelefono.getText();
+            Brigada brigada = new Brigada();
+            brigada.
+            
+            
+            
+            MenuPrincipal.ListaBombero.add(new Bombero(id_bombero,dni,nombre_ape,grupoSangineo,fecha_nac,celular,codbrigada));
+            Bombero bombero = new Bombero(id_bombero,dni,nombre_ape,grupoSangineo,fecha_nac,celular,codbrigada);
             BomberoData bomDat = new BomberoData();
             bomDat.guardarBomero(bombero);
             for(Bombero bom: ListaBombero){
-                
+                System.out.println("Bombero: "+bom.getIdBombero()+" "+bom.getDni()+" "+bom.getNombrecompleto()+" "+bom.getGrupoSangineo()+" "+bom.getFechaNac()+" "+bom.getCelular()+" "+bom.getBrigada()+" Guardado con exito");
             }
             
         } catch(NumberFormatException ex){

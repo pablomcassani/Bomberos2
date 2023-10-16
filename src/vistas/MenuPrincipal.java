@@ -35,9 +35,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         button2 = new java.awt.Button();
         JMenuBar = new javax.swing.JMenuBar();
         JMBomberos = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         JMBrigadas = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         JMCuarteles = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         JMIncidentes = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -54,7 +58,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 700));
 
         JDPEscritorio.setPreferredSize(new java.awt.Dimension(600, 500));
 
@@ -62,7 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JDPEscritorio.setLayout(JDPEscritorioLayout);
         JDPEscritorioLayout.setHorizontalGroup(
             JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         JDPEscritorioLayout.setVerticalGroup(
             JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,15 +90,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JMBomberosActionPerformed(evt);
             }
         });
+
+        jMenuItem1.setText("Formulario de Bombero");
+        JMBomberos.add(jMenuItem1);
+
         JMenuBar.add(JMBomberos);
 
         JMBrigadas.setText("Brigadas");
+
+        jMenuItem2.setText("Formulario de brigadas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        JMBrigadas.add(jMenuItem2);
+
         JMenuBar.add(JMBrigadas);
 
         JMCuarteles.setText("Cuarteles");
+
+        jMenuItem3.setText("Formulario de Cuartel");
+        JMCuarteles.add(jMenuItem3);
+
         JMenuBar.add(JMCuarteles);
 
         JMIncidentes.setText("Incidentes");
+
+        jMenuItem4.setText("Formulario de incidentes");
+        JMIncidentes.add(jMenuItem4);
+
         JMenuBar.add(JMIncidentes);
 
         setJMenuBar(JMenuBar);
@@ -104,9 +128,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(JDPEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(JDPEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,6 +151,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JDPEscritorio.add(fdb);
         JDPEscritorio.moveToFront(fdb);
     }//GEN-LAST:event_JMBomberosMouseClicked
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +202,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private java.awt.Button button2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
