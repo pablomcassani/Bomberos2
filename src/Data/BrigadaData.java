@@ -47,8 +47,8 @@ public class BrigadaData {
         }
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error al acceder a brigada "+ex.getMessage());
+        }
     }
- }
      
     public List<Brigada> listarBrigada(){
         ArrayList <Brigada> brigadas = new ArrayList<>() ;
@@ -107,8 +107,8 @@ public class BrigadaData {
      JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cuartel "+ex.getMessage());
         }
         return brigada;
-}    
-         public void modificarBrigada(Brigada brigada){
+    }       
+        public void modificarBrigada(Brigada brigada){
         String sql = "UPDATE brigada SET  nombre_br = ?, especialidad = ?, libre = ? WHERE codBrigada= ? and codCuartel = ?";
         PreparedStatement ps = null;
         try{
@@ -145,4 +145,40 @@ public class BrigadaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla brigada");
        }
     }
+    
+    List<Brigada> listaBrigadasIncompletas(){
+        ArrayList <Brigada> brigadas = new ArrayList<>();
+        String sql = "SELECT id_bombero, dni, nombre_ape, grupoSanguineo, fecha_nac, celular, codBrigada FROM bombero WHERE codBrigada = ?";
+        
+        try{
+             PreparedStatement ps = con.prepareStatement(sql);
+           
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(){
+            
+            }
+            
+            while(rs.next()){
+            Brigada brigada = new Brigada();
+            brigada.setcodBrigada(rs.getInt("codBrigada"));
+            Cuartel cua = cuaData.buscarCuartel(rs.getInt("codCuartel"));
+
+            brigada.setNombreBr(rs.getString("nombre_br"));
+            brigada.setEspecialidad(rs.getString("especialidad"));
+            brigada.setLibre(rs.getBoolean("libre"));
+            brigada.setCuartel(cua);
+            brigadas.add(brigada);
+                JOptionPane.showMessageDialog(null,brigada.getNombreBr());
+   
+            }
+        
+            ps.close();
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return brigadas;
+    }
+    }         
 }
