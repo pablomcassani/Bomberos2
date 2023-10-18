@@ -90,6 +90,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JMenuBar.add(JMBomberos);
 
         JMBrigadas.setText("Brigadas");
+        JMBrigadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JMBrigadasMouseClicked(evt);
+            }
+        });
         JMenuBar.add(JMBrigadas);
 
         JMCuarteles.setText("Cuarteles");
@@ -124,11 +129,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void JMBomberosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMBomberosMouseClicked
          JDPEscritorio.removeAll();
         JDPEscritorio.repaint();
-        formularioDeBombero fdb = new formularioDeBombero();
+        FormularioDeBombero fdb = new FormularioDeBombero();
         fdb.setVisible(true);
         JDPEscritorio.add(fdb);
         JDPEscritorio.moveToFront(fdb);
     }//GEN-LAST:event_JMBomberosMouseClicked
+
+    private void JMBrigadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMBrigadasMouseClicked
+        JDPEscritorio.removeAll();
+        JDPEscritorio.repaint();
+        FormularioDeBrigada fdb = new FormularioDeBrigada();
+        fdb.setVisible(true);
+        JDPEscritorio.add(fdb);
+        JDPEscritorio.moveToFront(fdb);
+    }//GEN-LAST:event_JMBrigadasMouseClicked
 
     /**
      * @param args the command line arguments
