@@ -9,12 +9,12 @@ package vistas;
  *
  * @author nacho
  */
-public class formularioDeCuartel extends javax.swing.JInternalFrame {
+public class FormularioDeCuartel extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form formularioDeCuartel
+     * Creates new form FormularioDeCuartel
      */
-    public formularioDeCuartel() {
+    public FormularioDeCuartel() {
         initComponents();
     }
 

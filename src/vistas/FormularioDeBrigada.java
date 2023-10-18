@@ -9,12 +9,12 @@ package vistas;
  *
  * @author nacho
  */
-public class Brigada extends javax.swing.JInternalFrame {
+public class FormularioDeBrigada extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Brigada
      */
-    public Brigada() {
+    public FormularioDeBrigada() {
         initComponents();
     }
 
